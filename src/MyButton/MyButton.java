@@ -1,4 +1,4 @@
-package Functions;
+package MyButton;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -8,32 +8,42 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class MyButton extends JButton {
+    private boolean isUsedButton;
 
     public MyButton() {
         super();
-        compute();
+        computeMyButton();
     }
 
     public MyButton(Image image) {
         super(new ImageIcon(image));
-        compute();
+        computeMyButton();
     }
 
-    private void compute() {
-        BorderFactory.createLineBorder(Color.BLUE);
+    private void computeMyButton() {
+        isUsedButton = false;
+        BorderFactory.createLineBorder(Color.GRAY);
 
         addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                System.out.println("Mouse entered");
+                setBorder(BorderFactory.createLineBorder(Color.ORANGE));
             }
 
             public void mouseExited(MouseEvent e) {
-                System.out.println("Mouse exited");
+                setBorder(BorderFactory.createLineBorder(Color.GRAY));
             }
         });
 
+    }
+
+    public boolean isUsedButton() {
+        return isUsedButton;
+    }
+
+    public void setUsedButton() {
+        isUsedButton = true;
     }
 
 }
