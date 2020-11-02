@@ -110,6 +110,7 @@ public class Puzzle extends JFrame {
         setTitle("Picture Puzzle");
         setResizable(true);
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 
